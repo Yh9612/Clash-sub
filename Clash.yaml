@@ -1,0 +1,24 @@
+proxies:
+  - name: "VLESS-WS"
+    type: vless
+    server: yhl.yhlglobalshop.online
+    port: 443
+    uuid: 52fe724f-f000-4575-b0c6-6fd27ba11d8b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        Host: yhl.yhlglobalshop.online
+    servername: yhl.yhlglobalshop.online
+
+proxy-groups:
+  - name: "auto"
+    type: select
+    proxies:
+      - "VLESS-WS"
+
+rules:
+  - MATCH,auto
